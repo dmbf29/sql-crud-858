@@ -1,0 +1,75 @@
+-- GET ALL PATIENT NAMES
+-- SELECT column, column
+-- FROM table_name
+
+SELECT first_name, last_name
+FROM patients
+
+-- All patients
+SELECT * FROM patients
+
+-- One parameter for patient
+SELECT * FROM patients
+WHERE age = 21
+
+SELECT * FROM patients
+WHERE id = 1
+
+SELECT * FROM doctors
+WHERE specialty = 'Cardiac Surgery'
+
+SELECT * FROM doctors
+WHERE specialty LIKE '%Surgery%'
+-- WHERE specialty ILIKE '%Surgery%'
+-- anything can come before the %
+
+SELECT * FROM doctors
+WHERE specialty = 'Cardiac Surgery'
+AND first_name = 'Steve'
+
+SELECT * FROM doctors
+WHERE specialty = 'Cardiac Surgery'
+OR first_name = 'Steve'
+
+SELECT * FROM patients ORDER BY age ASC
+SELECT * FROM patients ORDER BY age DESC
+
+SELECT COUNT(*) FROM doctors
+SELECT SUM(age) FROM doctors
+SELECT AVG(age) FROM doctors
+SELECT ROUND(AVG(age), 2) FROM doctors
+
+SELECT COUNT(*) FROM doctors
+WHERE specialty = 'Cardiac Surgery'
+
+-- SELECT * FROM doctors;
+-- sum = 0
+-- doctors.each do |doctors|
+--   sum += doctors.age
+-- end
+
+SELECT COUNT(*), specialty
+FROM doctors
+GROUP BY specialty
+
+SELECT COUNT(*) c, specialty
+FROM doctors
+GROUP BY specialty
+ORDER BY c DESC
+
+-- QUESTION: GIVE ME ALL THE INHABITANTS FROM PARIS
+SELECT * FROM inhabitants
+JOIN cities ON cities.id = inhabitants.city_id
+-- JOIN cities ON inhabitants.city_id = cities.id
+WHERE cities.name = 'Paris'
+-- WHERE table.column = 'value'
+-- table is ALWAYS plural
+
+SELECT * FROM inhabitants i
+JOIN cities ON cities.id = i.city_id
+WHERE cities.name = 'Paris'
+AND i.age >= 18
+
+SELECT consultations.date, patients.first_name, patients.last_name, doctors.first_name, doctors.last_name FROM consultations
+JOIN patients ON patients.id = consultations.patient_id
+JOIN doctors ON doctors.id = consultations.doctor_id

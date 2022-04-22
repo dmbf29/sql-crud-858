@@ -1,0 +1,43 @@
+-- CRUD
+
+-- Read All (SELECT)
+-- controller #index
+-- DB #all
+SELECT * FROM doctors;
+
+"https://www.airbnb.com/rooms/22739510"
+-- Read one (SELECT)
+-- controller #show
+-- DB #find(id)
+SELECT * FROM doctors
+WHERE id = 5
+
+SELECT * FROM rooms
+WHERE id = 22739510
+
+'https://github.com/dmbf29'
+SELECT * FROM users
+WHERE username = 'dmbf29'
+
+
+-- Create (INSERT)
+INSERT INTO table_name (column_name, column_name, column_name)
+VALUES ('value', 'value', 'value')
+
+INSERT INTO doctors (name, age, specialty)
+VALUES ('Luis', 45, 'Kicking Ass')
+
+-- Update (UPDATE)
+UPDATE table_name
+SET column_name = 'value', column_name = 'value'
+WHERE id = 3 -- WHERE is SUPER important
+
+
+-- Delete (DELETE)
+DELETE FROM table_name
+WHERE id = 3 -- WHERE is SUPER important
+-- WHERE name = 'Kyle'
+
+
+-- Table and column commands: we will write Ruby code to do this
+DROP TABLE -- deletes the table entirely
